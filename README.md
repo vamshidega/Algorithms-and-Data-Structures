@@ -3,10 +3,11 @@
 #Algorithms
 
 #Data Structures
-    @Linked Lists
+
+    #Linked Lists
       - Linked List Operations - Insertion, Deletion, Reverse the List
         
     
-    @Trees
+    #Trees
        -BST Operations - Insertion, Deletion, Level Order Traversal 
     
