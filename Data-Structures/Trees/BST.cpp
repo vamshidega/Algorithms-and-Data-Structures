@@ -7,6 +7,7 @@
 
 #include<iostream>
 #include<stdio.h>
+#include<queue>
 using namespace std;
 
 typedef struct node{
@@ -105,7 +106,20 @@ void PrintTree(Node* root)
 	PrintTree(root->left);
 	PrintTree(root->right);
 }
-
+/********************* Print the Level Order Traversal of BST ************/
+void LevelOrderTraversalBST(Node* root)
+{
+	std::queue<Node*> TreeQueue;
+	TreeQueue.push(root);
+	while(!TreeQueue.empty())
+	{
+		root = TreeQueue.front();
+		std::cout<<TreeQueue.front()->data<<" ";
+		if(root->left) TreeQueue.push(root->left);
+		if(root->right) TreeQueue.push(root->right);
+		TreeQueue.pop();
+	}
+}
 
 int main()
 {
