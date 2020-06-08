@@ -28,10 +28,37 @@ Node* Create_Node(Node** root,int data)
 /*****************Find Max Element In Tree***************/
 Node* FindMax(Node* root)
 {
-	if(root == NULL) return root;
-	else
-		root->right=FindMax(root->right);
-	return root;
+	//Tree is empty
+	if(root == NULL) return -1;
+	
+	while(root->right!=NULL)
+        	root=root->right;
+    	return root;
+}
+
+/*****************Find Min Element In Tree***************/
+Node* FindMin(Node* root)
+{
+	//Tree is empty
+	if(root == NULL) return -1;
+	
+	while(root->left!=NULL)
+        	root=root->left;
+    	return root;
+}
+
+/***************** Find a Node / Search for a node ********/
+Node* Find(Node* root, int data)
+{
+    if(root==NULL) return 0;
+    
+    while(root->data!=data)
+    {
+        if(data < root->data) root = root->left;
+        else root=root->right;
+    }
+    
+    return root;
 }
 
 /****************** Delete a Node ************************/
