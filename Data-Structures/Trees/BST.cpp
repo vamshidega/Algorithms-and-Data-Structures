@@ -3,6 +3,8 @@
 * 1. Insert node
 * 2. Delete a Node
 * 3. Print tree in PreOrder
+* 4. Print tree in Level Order
+* 5. Find Min,Miax elements in the tree
 */
 
 #include<iostream>
