@@ -1,6 +1,7 @@
 /* Problems on the Print root to all leaf nodes
 *
 * Program to Print all paths from root to leaf nodes.
+* Program to print all root to leaf paths with sum K
 * 
 */
 
@@ -86,6 +87,33 @@ void print_path(Node* root)
     //to back trace pop the last leaf element from the stack
     node_data.pop();
 }
+
+/*************** Print path from root to leaf nodes with sum K *********************/
+/* This is done with the Inorder Traversal
+* Add sum when visit a node. go until leafe node reaches in the left.
+* check the sum each time. when go back to root - pop the node and substract the data value from the total sum
+*/
+
+
+int sum = 0;
+void print_path_sum(Node* root,int path_sum)
+{
+    if(root == NULL) return;
+    //Add to the sum when visit the node and push it to the stack
+    sum = sum + root->data;
+    node_data.push(root->data);
+    //each time check for the Sum is equivalent to the required sum , if yes print the stack. Printing happens in other function.
+    if(sum == path_sum)
+        print_stack(node_data);
+    //Go left then Go right
+    print_path_sum(root->left,path_sum);
+    print_path_sum(root->right,path_sum);
+    //when go back from the leaf node - sunstarct form the total sum and pop from stack.
+    sum = sum - root->data;
+    node_data.pop();
+    
+}
+
 
 int main()
 {
