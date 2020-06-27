@@ -115,6 +115,37 @@ void print_path_sum(Node* root,int path_sum)
 }
 
 
+/***************** Print the nodes using the Vector ****************/
+
+int sum = 0;
+std::vector<int> paths;
+void print_vect_path(std::vector<int> path)
+{
+    std::vector<int>::iterator it;
+    for(it=path.begin(); it!=path.end(); it++)
+        std::cout<<*it<<" ";
+    std::cout<<endl;
+}
+
+void print_path_sum(Node* root,int path_sum)
+{
+    if(root == NULL) return;
+    
+    sum = sum + root->data;
+    paths.push_back(root->data);
+    
+    if(sum == path_sum)
+        print_vect_path(paths);
+    
+    print_path_sum(root->left,path_sum);
+    print_path_sum(root->right,path_sum);
+    
+    sum = sum - root->data;
+    paths.pop_back();
+    
+}
+
+
 int main()
 {
 	Node* root = NULL;
