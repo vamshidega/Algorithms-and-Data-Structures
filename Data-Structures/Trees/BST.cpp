@@ -5,6 +5,7 @@
 * 3. Print tree in PreOrder
 * 4. Print tree in Level Order
 * 5. Find Min,Miax elements in the tree
+* 6. Max depth or height of the tree recursive
 */
 
 #include<iostream>
@@ -26,6 +27,16 @@ Node* Create_Node(Node** root,int data)
 	(*root)->data = data;
 	return *root;
 }
+
+/****** Max Depth or Height of the Tree *************/ /*Recorsive*/
+ int maxDepth(Node* root) 
+ {
+        if(root == NULL) return 0;
+        else return max(maxDepth(root->left),maxDepth(root->right))+1;
+  }
+
+
+
 
 /*****************Find Max Element In Tree***************/
 Node* FindMax(Node* root)
